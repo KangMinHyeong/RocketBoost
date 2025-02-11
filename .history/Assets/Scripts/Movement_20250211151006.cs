@@ -78,8 +78,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            rightThrustParticles.Stop();
-            leftThrustParticles.Stop();
+
         }
     }
 
