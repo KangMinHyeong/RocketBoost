@@ -41,14 +41,19 @@ public class Movement : MonoBehaviour
         {
             mainRB.AddRelativeForce(Vector3.up * BoostAcceleration * Time.fixedDeltaTime);
             
-            if (!audioSource.isPlaying) audioSource.PlayOneShot(mainEngineSFX);
-            if (!mainEngineParticles.isPlaying) mainEngineParticles.Play();
+            if(!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(mainEngineSFX);
+            }
+            if (!mainEngineParticles.isPlaying)
+            {
+                mainEngineParticles.Play();
+            }
 
         }
         else
         {
             audioSource.Stop();
-            mainEngineParticles.Stop();
         }
             
     }
@@ -60,26 +65,10 @@ public class Movement : MonoBehaviour
         if(RotationValue < 0) // Left Rotate
         {
             AddRotation(RotationAcceleration);
-            if (!rightThrustParticles.isPlaying)
-            {
-                leftThrustParticles.Stop();
-                rightThrustParticles.Play();
-            }
-
         }
         else if(RotationValue > 0) // Right Rotate
         {
             AddRotation(-RotationAcceleration);
-            if (!leftThrustParticles.isPlaying)
-            {
-                rightThrustParticles.Stop();
-                leftThrustParticles.Play();
-            }
-        }
-        else
-        {
-            rightThrustParticles.Stop();
-            leftThrustParticles.Stop();
         }
     }
 
